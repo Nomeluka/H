@@ -1,5 +1,4 @@
 ### Some Details
-***
 __Monoid & Semigroup hw07 Srabble.hs__  
 <> and mempty are defined in Semigroup and Monoid respectively in new GHC  
 ```
@@ -46,8 +45,9 @@ foo a = 1
 ```
 when calling foo Cons, the right 1 is infered as an A type, thus if we do not implement fromInteger function, ghc would have an exception although compile ok
 
-### Some Tricks
 ***
+### Some Tricks
+
 __tilde pattern hw6 Stream.hs__  
 tilde pattern is a non-strict lazy evaluation which is lazier  
 
@@ -55,9 +55,8 @@ tilde pattern is a non-strict lazy evaluation which is lazier
 __foldr and foldl hw04 Problem3.hs__  
 they can transform from each other, this is an excellent trainning in curry functions  
 
-
-### A brief haskell knowledge list
 ***
+### A brief haskell knowledge list
 pattern matching  
      |  
  Recursion  
