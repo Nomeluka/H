@@ -1,4 +1,4 @@
-module L where
+module Poly where
 
 data A = Cons
   deriving (Show)

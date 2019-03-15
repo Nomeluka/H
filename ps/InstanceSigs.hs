@@ -1,6 +1,6 @@
 {-# LANGUAGE FlexibleInstances #-}
 
-module L where  
+module IntanceSigs where  
     data MyType a b = A | B a b | C a (MyType a b) (MyType a b)
 
     class MyClass b where
