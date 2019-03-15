@@ -1,4 +1,5 @@
 ### Some Details
+***
 __Monoid & Semigroup hw07 Srabble.hs__  
 <> and mempty are defined in Semigroup and Monoid respectively in new GHC  
 ```
@@ -14,13 +15,13 @@ Monad need to be an instance of Applicative in new GHC
 `-- instance Applicative ... where`  
 
 
-FlexibleInstances & InstanceSigs InstanceSigs & hw07 JoinList.hs  
+__FlexibleInstances & InstanceSigs InstanceSigs & hw07 JoinList.hs__  
 when declare a type class instance with type signature parameter, a prefix is needed  
 `-- intance MyTypeClass (MyType Integer) where`
 
 
 __parametric type class hw05 Calc.hs__  
-when a function with parametric type class signature, GHC would not compile up until we bind it to a specific instance of that type class  
+when a function with parametric type class signature, GHC would not call it until we assign it to a specific instance of that type class  
 ```
 {-  
 foo :: MyTypeClass a => a   
@@ -46,6 +47,7 @@ foo a = 1
 when calling foo Cons, the right 1 is infered as an A type, thus if we do not implement fromInteger function, ghc would have an exception although compile ok
 
 ### Some Tricks
+***
 __tilde pattern hw6 Stream.hs__  
 tilde pattern is a non-strict lazy evaluation which is lazier  
 
@@ -55,6 +57,7 @@ they can transform from each other, this is an excellent trainning in curry func
 
 
 ### A brief haskell knowledge list
+***
 pattern matching  
      |  
  Recursion  
