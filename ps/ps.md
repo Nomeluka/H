@@ -34,7 +34,7 @@ __polymorphism__
 a function's parameters and output must be matched to the type signature strictly  
 when the type signature is polymorphism, the inputs and output would be polymorphism as well  
 ```
-{- Poly.hs  
+{-   
 data A = Cons  
   deriving (Show)  
 instance Num A where  
@@ -54,6 +54,10 @@ tilde pattern is a non-strict lazy evaluation which is lazier
 
 __foldr and foldl hw04 Problem3.hs__  
 they can transform from each other, this is an excellent trainning in curry functions  
+
+__Record Syntax__
+we can directly fetch field in a data type by 
+`-- field MyType`
 
 ***
 ### A brief haskell knowledge list
