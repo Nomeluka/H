@@ -23,13 +23,6 @@ spaces = zeroOrMore (satisfy isSpace)
 
 ident :: Parser String
 ident = (:) <$> (satisfy isAlpha) <*> (zeroOrMore (satisfy isAlphaNum))
-{-
-ident = Parser (\s -> case runParser (satisfy isAlpha) s of 
-                      Nothing -> Nothing;
-                      Just (c, cs) -> Just ([c] ++ c1, cs1)
-                        where Just (c1, cs1) = runParser (zeroOrMore (satisfy isAlphaNum)) cs  
-               )   
--}
 
 type Ident = String
 
@@ -43,9 +36,13 @@ data SExpr = A Atom
            | Comb [SExpr]
   deriving Show
 
-parseSExpr :: Parser SExpr
+-- We can add additional actions to a (Parser a) using <* or *>,
+-- since the runParser in a Parser has been changed due to the <*> in <* or *>, 
+-- although the same data type (Parser a)
+
+parseSExpr :: Parser SExpr  
 parseSExpr = spaces *> (listmod <|> idmod <|> intmod) <* spaces
- where listmod = char '(' *> ((\e -> \el -> Comb (e:el)) <$> parseSExpr <*> repmod) <* char ')' 
-       idmod = (\i -> A (I i)) <$> ident
-       intmod = (\x -> A (N x)) <$> posInt
-       repmod = zeroOrMore (parseSExpr <* spaces)
+ where listmod = char '(' *> (Comb <$> repmod) <* char ')' 
+       idmod = (A . I)  <$> ident
+       intmod = (A . N) <$> posInt
+       repmod = oneOrMore parseSExpr
